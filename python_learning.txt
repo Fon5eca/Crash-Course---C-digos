@@ -1,0 +1,9 @@
+En Python puedes hacer funciones
+En Python puedes hacer clases
+En Python puedes hacer listas
+En Python puedes hacer diccionarios
+En Python puedes hacer tuplas
+En Python puedes hacer conjuntos
+En Python puedes leer textos
+En Python puedes hacer módulos
+En Python puedes trabajar con librerías
