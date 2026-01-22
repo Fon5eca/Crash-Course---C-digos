@@ -31,3 +31,12 @@ with open("python_learning.txt") as python_archivo:
 
 for linea in lineas:
     print(linea.replace("Python", "Java Script").rstrip())
+
+
+
+with open("escribir.txt", "w") as texto:
+    texto.write("Programming enthusiast!")
+
+
+with open("escribir.txt", "a") as texto:
+    texto.write(" I love programming because I find incredible how can we represent with a machine our thoughts. For me, programming is more than a science.")
