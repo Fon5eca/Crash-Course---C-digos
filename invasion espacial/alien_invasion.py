@@ -4,8 +4,8 @@ import pygame
 class GameSettings():
     def __init__(self):
         '''Create the game settings.'''
-        self.screen = pygame.display.set_mode((1600, 900))     #Creates a window
-        pygame.display.set_caption("Alien Invasion")     #Name of the window
+        self.width = 1600
+        self.height = 900
         self.screen_color = (75, 34, 171)     #Screen colors in RGB
 
 
@@ -14,6 +14,8 @@ class AlienInvasion():
         '''Cuando se crea una instancia (partida), que se guarden estos ajustes y se inicialice pygame.'''
         pygame.init()
         self.settings = GameSettings()
+        self.screen = pygame.display.set_mode((self.settings.width, self.settings.height))     #Creates a window
+        pygame.display.set_caption("Alien Invasion")     #Name of the window
 
     def run_game(self):
         '''Iniciar el juego'''
@@ -24,7 +26,7 @@ class AlienInvasion():
                     sys.exit()
 
             #Actualizar el color de fondo
-            self.settings.screen.fill(self.settings.screen_color)
+            self.screen.fill(self.settings.screen_color)
 
             #Actualizar el frame (para los fps)
             pygame.display.flip()
