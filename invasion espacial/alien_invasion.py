@@ -1,5 +1,6 @@
 import sys
 import pygame
+from ship import Ship
 
 class GameSettings():
     def __init__(self):
@@ -16,6 +17,7 @@ class AlienInvasion():
         self.settings = GameSettings()
         self.screen = pygame.display.set_mode((self.settings.width, self.settings.height))     #Creates a window
         pygame.display.set_caption("Alien Invasion")     #Name of the window
+        self.ship = Ship(self)     #Esto se hace para dar acceso de una clase a otra y viceversa.
 
     def run_game(self):
         '''Iniciar el juego'''
@@ -27,6 +29,8 @@ class AlienInvasion():
 
             #Actualizar el color de fondo
             self.screen.fill(self.settings.screen_color)
+            
+            self.ship.blitme()
 
             #Actualizar el frame (para los fps)
             pygame.display.flip()
