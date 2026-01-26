@@ -17,10 +17,10 @@ class Ship():
         self.screen.blit(self.image, self.rect)
     
     def update(self):
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.ship_speed     #Aumenta en 1 la posición en x de la nave (ahora es un rectángulo)
 
-        if self.moving_left:
+        if self.moving_left and self.screen_rect.left < self.rect.left:
             self.x -= self.ship_speed
         
         self.rect.x = self.x
