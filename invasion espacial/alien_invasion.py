@@ -62,9 +62,9 @@ class AlienInvasion():
             self.ship.moving_right = True
         if event.key == pygame.K_LEFT:
             self.ship.moving_left = True
-        if event.key == pygame.K_q:
+        elif event.key == pygame.K_q:
             sys.exit()
-        if event.key == pygame.K_SPACE:
+        elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
     def _check_upkeys(self, event):
@@ -87,12 +87,12 @@ class AlienInvasion():
         #Pegar la imagen en la pestaña
         self.ship.blitme()
 
-        #Actualizar el frame (para los fps)
-        pygame.display.flip()
-
         #Dibujar cada bala
         for bullet in self.bullet.sprites():
             bullet.draw_bullet()
+
+        #Actualizar el frame (para los fps)
+        pygame.display.flip()
 
 if __name__ == '__main__':
     partida = AlienInvasion()
