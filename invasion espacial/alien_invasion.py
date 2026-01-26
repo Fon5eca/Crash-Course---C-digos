@@ -9,11 +9,11 @@ class GameSettings():
         self.width = 0     #Pongo 0 para poder ponerlo en pantalla grande
         self.height = 0
         self.screen_color = (75, 34, 171)     #Screen colors in RGB
-        self.ship_speed = 10
+        self.ship_speed = 5
 
         #Bullet settings
-        self.bullet_speed = 15.0
-        self.bullet_width = 3
+        self.bullet_speed = 1.0
+        self.bullet_width = 7
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
 
@@ -38,9 +38,9 @@ class AlienInvasion():
         '''Iniciar el juego'''
         while True:
             self._check_events()
-            self._update_screen()
             self.ship.update()
             self.bullet.update()
+            self._update_screen()
 
 
     def _check_events(self):
