@@ -16,6 +16,7 @@ class GameSettings():
         self.bullet_width = 7
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
+        self.bullets_allowed = 3
 
 
 
@@ -38,8 +39,8 @@ class AlienInvasion():
         '''Iniciar el juego'''
         while True:
             self._check_events()
-            self.ship.update()
-            self.bullet.update()
+            self.ship.update()     #Update se refieren a dibujar el obj. con las caract. que tenga.
+            self._update_bullets()
             self._update_screen()
 
 
@@ -75,8 +76,9 @@ class AlienInvasion():
 
 
     def _fire_bullet(self):
-        new_bullet = Bullet(self)
-        self.bullet.add(new_bullet)     #Agregar al grupo de sprites
+        if len(self.bullet) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullet.add(new_bullet)     #Agregar al grupo de sprites
     
 
     #Todo lo que implica actualizar la pantalla
@@ -93,6 +95,14 @@ class AlienInvasion():
 
         #Actualizar el frame (para los fps)
         pygame.display.flip()
+
+    def _update_bullets(self):
+        self.bullet.update()
+
+        #Borrar balas que ya no se requieren
+        for bullet in self.bullet.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullet.remove(bullet)
 
 if __name__ == '__main__':
     partida = AlienInvasion()
